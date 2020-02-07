@@ -4,8 +4,21 @@
 """
 
 
-def custom_range(*args, **kwargs):
-    pass
+def custom_range(a,b,c):
+    while True:
+        if not b or c :
+            return list[:a]
+        elif not c:
+            return list[a:b]
+        elif a and b and c == True:
+            a +=c
+            return list[a:b:c]
+
+
+
+
+
+
 
 
 """
@@ -16,8 +29,14 @@ accum("cwAt") -> "C-Ww-Aaa-Tttt"
 """
 
 
-def accum(*args, **kwargs):
-    pass
+def accum(*words):
+    return '-'.join(map( lambda x: (x[1] * x[0]).capitalize(), enumerate(*words, 1)))
+    print(accum('abcd'))
+    assert accum("abcd") == "A-Bb-Ccc-Dddd"
+    assert accum("RqaEzty") == "R-Qq-Aaa-Eeee-Zzzzz-Tttttt-Yyyyyyy"
+    assert accum("cwAt") == "C-Ww-Aaa-Tttt"
+    print('accum - OK')
+
 
 
 """
