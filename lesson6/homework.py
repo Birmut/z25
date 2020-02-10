@@ -1,5 +1,7 @@
+import datetime
 """
 Ex1
+
 Это простое упражнение на использование упаковок.
 Определите функцию print_given, которая для каждого переданного аргумента
 будет распечатывать на отдельной строке через пробел имя аргумента
@@ -27,7 +29,12 @@ print_given()
 
 
 def print_given(*args, **kwargs):
-    pass
+ for smth in args:
+  print (( smth, type(smth)))
+ for lol in kwargs:
+  print ( lol, kwargs[lol], type(kwargs[lol]))
+
+
 
 
 """
@@ -61,7 +68,14 @@ number_names = {
 
 
 def sort_by_abc(*args, **kwargs):
-    pass
+    number_names = {
+        0: "zero", 1: "one", 2: "two", 3: "three", 4: "four", 5: "five",
+        6: "six", 7: "seven", 8: "eight", 9: "nine",
+        10: "ten", 11: "eleven", 12: "twelve",
+        13: "thirteen", 14: "fourteen", 15: "fifteen", 16: "sixteen",
+        17: "seventeen", 18: "eighteen", 19: "nineteen"}
+
+
 
 
 """
@@ -124,8 +138,17 @@ div(2, 4, show=True)
 """
 
 
-def flip(*args, **kwargs):
-    pass
+def flip(func):
+    def decor(*args, **kwargs):
+        return func(*args[::-1])
+    return decor
+
+@flip
+def div(x, y, show=False):
+    res = x / y
+    if show:
+        print(res)
+    return res
 
 
 """
@@ -162,8 +185,13 @@ Ex6
 """
 
 
-def timer(*args, **kwargs):
-    pass
+def timer(func):
+    def wrapper():
+        start = datetime.now()
+        result = func()
+        print(datetime.now() - start)
+        return result
+    return wrapper
 
 
 if __name__ == "__main__":
