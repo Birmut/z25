@@ -1,3 +1,4 @@
+import re
 """1. Написать кэширующий декоратор,
 который принимает время (в секундах, сколько необюходимо хранить результат)
 
@@ -51,8 +52,9 @@ the printing 10-13-2018 and typesetting industry.
 """
 
 
-def get_datetimes(*args, **kwargs):
-    pass
+def get_datetimes(string):
+    pattern = re.compile(r'\d{2}-\d{2}-\d{4}')
+    return pattern.findall(string)
 
 
 """
@@ -68,10 +70,16 @@ get_words('Lorem Ipsum is simply', sym=('vowels',))
 """
 
 
-def get_words(*args, **kwargs):
-    pass
+def get_words(string, word):
+    if word == c:
+        return re.compile(r'^[yuioaEYUIOA]\w+').findall(string)
+    elif word == v:
+        return re.compile(r'^[QWRTPSDFGHJKLZXCVBNMqwrtpsdfghjklzxcvbnm]\w+').findall(string)
+    else:
+        print("error")
 
 
+    return pattern.findall(string)
 """
 5. Написать функцию, которая группирует результат команды ping
 ((<icmp_seq>, <ttl>), ...)
