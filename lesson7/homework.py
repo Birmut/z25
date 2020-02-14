@@ -93,8 +93,10 @@ get_result(s)
 """
 
 
-def get_ping_info(*args, **kwargs):
-    pass
+def get_ping_info(string):
+    pattern_seq = re.compile(r'(:icmp_seq=)\d+').findall(string)
+    pattern_time = re.compile(r'=time=\d{2}.\d{3}').findall(string)
+    return tuple(zip(pattern_seq,  pattern_time ))
 
 
 if __name__ == "__main__":
