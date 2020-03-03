@@ -1,10 +1,16 @@
 import unittest
+<<<<<<< HEAD
 from homework import Fibonacci, Even, Factorial
+=======
+from homework import BinomialCoefficients
+>>>>>>> 23d2fe501332147611b17b00552e44e8c6375e4a
 
 
 class HomeworkTest(unittest.TestCase):
-    def test_ok(self):
-        self.assertTrue(True)
+    def test_binom(self):
+        self.assertEqual(list(BinomialCoefficients(0)), [1])
+        self.assertEqual(list(BinomialCoefficients(1)), [1, 1])
+        self.assertEqual(list(BinomialCoefficients(5)), [1, 5, 10, 10, 5, 1])
 
     def Fibonacci_test(self):
         _list = list(Fibonacci(8))
